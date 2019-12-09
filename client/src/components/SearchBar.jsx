@@ -102,6 +102,7 @@ class SearchBar extends React.Component{
     this.toggleFocus = this.toggleFocus.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.filterUniqueSearchResults = this.filterUniqueSearchResults.bind(this);
+    this.handleAutocomplete = this.handleAutocomplete.bind(this);
   }
 
   toggleFocus(e) {
@@ -170,6 +171,20 @@ class SearchBar extends React.Component{
       })
     }
   }
+  // var regex = new RegExp(`^${this.state.value}|\\b${this.state.value}`, `i`)
+  // resultArr[0] = item.replace(regex, (<b>{this.state.value}</b>))
+  // if(item.includes(this.state.value) || item.toLowerCase().includes(this.state.value)) {
+  // return resultArr;
+  // }
+
+  handleAutocomplete(item) {
+    var regex = new RegExp(`^${this.state.value}|\\b${this.state.value}`, `i`)
+    var autosearch = item.replace(regex, `<b>${this.state.value}</b>`)
+    const text = {
+      __html: autosearch
+    };
+    return (<p dangerouslySetInnerHTML={text}/>)
+  }
 
   render() {
     return (
@@ -187,7 +202,7 @@ class SearchBar extends React.Component{
           this.state.currentQuery.map((item, index) => {
             return(
             <QueryResult font={this.props.font} key={index}>
-              {item}
+              {this.handleAutocomplete(item)}
             </QueryResult>
             )
           })
