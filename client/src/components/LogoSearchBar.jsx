@@ -141,7 +141,7 @@ class LogoSearchBar extends React.Component {
             </ShopIcon>
             <HeartIcon imgUrl={heartIcon} href="#">
             </HeartIcon>
-            <SearchBar borderColor={this.props.borderColor}></SearchBar>
+            <SearchBar borderColor={this.props.borderColor} font={this.props.font}></SearchBar>
             <ShipToContainer borderColor={this.props.borderColor}>
               <ShipTo href="#">
                 Ship To
