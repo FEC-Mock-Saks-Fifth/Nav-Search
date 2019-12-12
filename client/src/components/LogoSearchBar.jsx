@@ -9,7 +9,7 @@ class LogoSearchBar extends React.Component {
 
   render() {
     return(
-      <div font={this.props.font} className="joshMainContainer">
+      <div className="joshMainContainer">
         <div className="joshSubContainer">
           <div className="joshSearchSignIn">
             <a href="#" className="joshShopIcon">
