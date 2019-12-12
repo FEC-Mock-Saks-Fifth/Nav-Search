@@ -7,7 +7,7 @@
     "start": "webpack -d --watch",
     "test": "jest",
     "start:server": "nodemon ./server/app.js",
-    "seed": "node ./db/seed.js"
+    "seed": "node ./db/index.js"
   },
   "repository": {
     "type": "git",
