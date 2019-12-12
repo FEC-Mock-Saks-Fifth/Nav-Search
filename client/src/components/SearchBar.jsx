@@ -1,92 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
 import axios from 'axios';
-
-let searchGlass ='http://clipart-library.com/images_k/magnifying-glass-icon-transparent/magnifying-glass-icon-transparent-19.png';
-let clearIcon = 'https://www.pngix.com/pngfile/big/533-5334187_png-file-svg-close-x-icon-png-transparent.png';
-
-const SearchContainer = styled.div`
-font-family: ${props => props.font};
-font-size: 14px;
-padding: 30px 30px 30px 30px;
-height: 20px;
-display: inline-block;
-justify-content: center;
-align-items: center;
-`;
-
-const BorderContainer = styled.div`
-height: 40px;
-width: fit-content(100%);
-display: flex;
-justify-content: center;
-align-items: center;
-border: 0.2px solid ${props => props.borderColor};
-padding: 0px 7px 0px 5px;
-`;
-
-const SearchButton = styled.button`
-height: 30px;
-width: 30px;
-border: none;
-opacity: ${props => props.isFocused ? `1;`: `0.3;`}
-background-image: url(${props => props.imageUrl});
-background-size: contain;
-background-repeat: no-repeat;
-`
-
-const ClearButton = styled.button`
-height: 15px;
-width: 15px;
-border: none;
-display: ${props => props.isFocused ? `block;`: `none;`}
-background-image: url(${props => props.imageUrl});
-background-size: contain;
-background-repeat: no-repeat;
-`
-
-const Search = styled.input`
-height: 30px;
-width: ${props => props.isFocused ? `230px;`: `130px;`}
-border: none;
-transition: all 0.3s
-outline:0;
-`;
-
-const AutoSearch = styled.div`
-position: absolute;
-display: flex;
-height: fit-content(100%);
-width: 100%;
-background: #F5F5F5;
-z-index: 1;
-border: 0.2px solid ${props => props.borderColor};
-justify-content: center;
-flex-direction: column;
-`;
-
-const SC2 = styled.div`
-position: relative;
-height: fit-content(100%);
-width: fit-content(100%);
-display: inline-block;
-bottom: 11px;
-`;
-
-const QueryResult = styled.div`
-display: flex;
-height: 40px;
-width: 70%;
-padding: 5px;
-align-items: center;
-&:hover{
-  cursor: pointer;
-  text-decoration: underline;
-  font-weight: bold;
-}
-`;
-
 
 class SearchBar extends React.Component{
   constructor(props) {
@@ -171,11 +85,6 @@ class SearchBar extends React.Component{
       })
     }
   }
-  // var regex = new RegExp(`^${this.state.value}|\\b${this.state.value}`, `i`)
-  // resultArr[0] = item.replace(regex, (<b>{this.state.value}</b>))
-  // if(item.includes(this.state.value) || item.toLowerCase().includes(this.state.value)) {
-  // return resultArr;
-  // }
 
   handleAutocomplete(item) {
     var regex = new RegExp(`^${this.state.value}|\\b${this.state.value}`, `i`)
@@ -188,31 +97,31 @@ class SearchBar extends React.Component{
 
   render() {
     return (
-      <SearchContainer font={this.props.font}>
-        <SC2>
-        <BorderContainer isFocused={this.state.isFocused} borderColor={this.props.borderColor}>
-        <SearchButton imageUrl={searchGlass} isFocused={this.state.isFocused}></SearchButton>
-        <Search type="text" placeholder="Search" value={this.state.value} onChange={(e) => this.handleChange(e)} onFocus={this.toggleFocus} onBlur={(e) => this.toggleFocus(e)} isFocused={this.state.isFocused}></Search>
-        <ClearButton imageUrl={clearIcon} isFocused={this.state.isFocused} onClick={this.handleClear}></ClearButton>
-        </BorderContainer>
+      <div className="joshSearchContainer">
+        <div className ="joshSC2">
+        <div className="joshBorderContainerSearch">
+        <button className="joshSearchButton" style={{opacity: this.state.isFocused ? '1': '0.3'}}></button>
+        <input type="text" placeholder="Search" value={this.state.value} onChange={(e) => this.handleChange(e)} onFocus={this.toggleFocus} onBlur={(e) => this.toggleFocus(e)} className="joshSearch" style={{width: this.state.isFocused ? '230px': '130px'}}></input>
+        <button onClick={this.handleClear} className="joshClearButton" style={{display: this.state.isFocused ? 'block': 'none'}}></button>
+        </div>
         {
-          this.state.isFocused ?
-        <AutoSearch borderColor={this.props.borderColor}>
+          this.state.currentQuery.length ?
+        <div className="joshAutoSearch">
         {
           this.state.currentQuery.map((item, index) => {
             return(
-            <QueryResult font={this.props.font} key={index}>
+            <div key={index} className="joshQueryResult">
               {this.handleAutocomplete(item)}
-            </QueryResult>
+            </div>
             )
           })
         }
-        </AutoSearch>
+        </div>
         :
         (null)
         }
-        </SC2>
-      </SearchContainer>
+        </div>
+      </div>
     )
   }
 }

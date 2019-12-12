@@ -1,66 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
 import { Transition } from 'react-spring/renderprops';
-
-let arrowIcon = 'https://toppng.com/uploads/preview/right-arrow-icon-11549436728z3gizxwjqt.png';
-
-const PB = styled.div`
-position: absolute;
-top: 0px;
-left: 0px;
-width: 100%;
-height: 35px;
-background-color: black;
-color: white;
-text-align: center;
-display: flex;
-`;
-
-const LeftArr = styled.a`
-position: absolute;
-filter: invert(100%);
-background: white;
-top: 5px;
-width: 40px;
-height: 25px;
-transform: scaleX(-1);
-background-image: url(${props => props.imgUrl});
-background-size: contain;
-background-repeat: no-repeat;
-&:hover {
-  opacity: 0.4;
-  }
-`;
-
-const RightArr = styled.a`
-position: absolute;
-filter: invert(100%);
-background: white;
-top: 5px;
-right: 0px;
-width: 40px;
-height: 25px;
-background-image: url(${props => props.imgUrl});
-background-size: contain;
-background-repeat: no-repeat;
-&:hover {
-  opacity: 0.4;
-  }
-`;
-
-const Promo = styled.div`
-font-family: ${props => props.font};
-white-space: nowrap;
-position: absolute;
-left: 40px;
-right: 40px;
-top: 10px;
-height: 17.5px;
-color: white;
-text-align: center;
-overflow: hidden;
-`;
 
 class PromoBar extends React.Component {
   constructor(props) {
@@ -125,10 +65,10 @@ class PromoBar extends React.Component {
 
   render() {
     return(
-        <PB>
-          <LeftArr imgUrl={arrowIcon} href='#' onClick={this.handleLeftArrowClick}>
-          </LeftArr>
-          <Promo font={this.props.font}>
+        <div className="joshPB">
+          <a href='#' onClick={this.handleLeftArrowClick} className="joshLeftArr">
+          </a>
+          <div className="joshPromo">
           {
             this.state.isRightScroll ?
           <Transition
@@ -147,10 +87,10 @@ class PromoBar extends React.Component {
           {item => props => <div style={props}>{this.state.promos[item]}</div>}
           </Transition>
           }
-          </Promo>
-          <RightArr imgUrl={arrowIcon} href='#' onClick={this.handleRightArrowClick}>
-          </RightArr>
-        </PB>
+          </div>
+          <a href='#' onClick={this.handleRightArrowClick} className="joshRightArr">
+          </a>
+        </div>
     )
   }
 }

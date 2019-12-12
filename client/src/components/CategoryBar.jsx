@@ -17,30 +17,6 @@ import { Transition } from 'react-spring/renderprops';
 
 let giftIcon = 'https://www.iconsdb.com/icons/preview/red/gift-xxl.png';
 
-const BorderContainer = styled.div`
-font-family: ${props => props.font};
-font-size: 14px;
-position: absolute;
-top: 155px;
-left: 0px;
-width: 100%;
-height: 35px;
-border-top: 0.2px solid ${props => props.borderColor};
-border-bottom: 0.2px solid ${props => props.borderColor};
-color: white;
-text-align: center;
-display: flex;
-justify-content: center;
-`;
-
-const CatContainer = styled.div`
-width: 1050px;
-height: 35px;
-text-align: center;
-display: flex;
-justify-content: space-between;
-`;
-
 const Cat = styled.div`
 height: 33px;
 display: flex;
@@ -54,14 +30,20 @@ align-items: center;
 }
 `;
 
-const DesignCat = styled(Cat)`
-&:hover > .SDESIGNER {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0%);
-  transition: all 0.25s ease .210s;
-}
-`;
+// const joshDesignCat = styled(Cat)`
+// height: 33px;
+// display: flex;
+// color: black;
+// text-decoration: none;
+// justify-content: center;
+// align-items: center;
+// &:hover > .SDESIGNER {
+//   visibility: visible;
+//   opacity: 1;
+//   transform: translateY(0%);
+//   transition: all 0.25s ease .210s;
+// }
+// `;
 
 const TheEditCat = styled(Cat)`
 &:hover > .STHEEDIT {
@@ -181,12 +163,12 @@ class CategoryBar extends React.Component {
   render() {
     return(
       <div>
-      <BorderContainer borderColor={this.props.borderColor} font={this.props.font}>
-        <CatContainer>
-          <DesignCat href="#" >
+      <div className="joshBorderContainerCats">
+        <div className="joshCatContainer">
+          <div href="#" className="joshDesignCat">
             DESIGNERS
-            <Designer borderColor={this.props.borderColor}></Designer>
-          </DesignCat>
+            <Designer></Designer>
+          </div>
           <TheEditCat href="#" >
             THE EDIT
           <TheEdit borderColor={this.props.borderColor}></TheEdit>
@@ -235,8 +217,8 @@ class CategoryBar extends React.Component {
               SALE
             <Sale borderColor={this.props.borderColor}></Sale>
           </SaleCat>
-        </CatContainer>
-      </BorderContainer>
+        </div>
+      </div>
         </div>
     )
   }
