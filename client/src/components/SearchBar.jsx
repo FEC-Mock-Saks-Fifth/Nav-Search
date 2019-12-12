@@ -68,7 +68,7 @@ class SearchBar extends React.Component{
 
   handleSearch(query) {
     if (query.length) {
-      axios.get('http://localhost:3000/autosearch', {
+      axios.get('http://localhost:3001/autosearch', {
         params: {
           'data': query
         }
