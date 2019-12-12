@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
 import Designer from './Dropdowns/Designer.jsx';
 import TheEdit from './Dropdowns/TheEdit.jsx';
 import WomensApparel from './Dropdowns/WomensApparel.jsx';
@@ -14,144 +13,6 @@ import Home from './Dropdowns/Home.jsx';
 import Gifts from './Dropdowns/Gifts.jsx';
 import Sale from './Dropdowns/Sale.jsx';
 import { Transition } from 'react-spring/renderprops';
-
-let giftIcon = 'https://www.iconsdb.com/icons/preview/red/gift-xxl.png';
-
-const Cat = styled.div`
-height: 33px;
-display: flex;
-color: black;
-text-decoration: none;
-justify-content: center;
-align-items: center;
-&:hover {
-  border-bottom: 2px solid black;
-  cursor: pointer;
-}
-`;
-
-// const joshDesignCat = styled(Cat)`
-// height: 33px;
-// display: flex;
-// color: black;
-// text-decoration: none;
-// justify-content: center;
-// align-items: center;
-// &:hover > .SDESIGNER {
-//   visibility: visible;
-//   opacity: 1;
-//   transform: translateY(0%);
-//   transition: all 0.25s ease .210s;
-// }
-// `;
-
-const TheEditCat = styled(Cat)`
-&:hover > .STHEEDIT {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0%);
-  transition: all 0.25s ease .210s;
-}
-`;
-
-const WomensApparelCat = styled(Cat)`
-&:hover > .SWOMENSAPPAREL {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0%);
-  transition: all 0.25s ease .210s;
-}
-`;
-
-const ShoesCat = styled(Cat)`
-&:hover > .SSHOES {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0%);
-  transition: all 0.25s ease .210s;
-}
-`;
-
-const HandbagsCat = styled(Cat)`
-&:hover > .SHANDBAGS {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0%);
-  transition: all 0.25s ease .210s;
-}
-`;
-
-const JewelryCat = styled(Cat)`
-&:hover > .SJEWELRY {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0%);
-  transition: all 0.25s ease .210s;
-}
-`;
-
-const BeautyCat = styled(Cat)`
-&:hover > .SBEAUTY {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0%);
-  transition: all 0.25s ease .210s;
-}
-`;
-
-const MenCat = styled(Cat)`
-&:hover > .SMEN {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0%);
-  transition: all 0.25s ease .210s;
-}
-`;
-
-const KidsCat = styled(Cat)`
-&:hover > .SKIDS {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0%);
-  transition: all 0.25s ease .210s;
-}
-`;
-
-const HomeCat = styled(Cat)`
-&:hover > .SHOME {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0%);
-  transition: all 0.25s ease .210s;
-}
-`;
-
-const GiftsCat = styled(Cat)`
-&:hover > .SGIFTS {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0%);
-  transition: all 0.25s ease .210s;
-}
-`;
-
-const SaleCat = styled(Cat)`
-&:hover > .SSALE {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0%);
-  transition: all 0.25s ease .210s;
-}
-`;
-
-const GiftIcon = styled.span`
-margin-left: 2px;
-width: 20px;
-height: 15px;
-background-image: url(${props => props.imageUrl});
-background-size: contain;
-background-repeat: no-repeat;
-`
 
 class CategoryBar extends React.Component {
   constructor(props) {
@@ -169,54 +30,54 @@ class CategoryBar extends React.Component {
             DESIGNERS
             <Designer></Designer>
           </div>
-          <TheEditCat href="#" >
+          <div href="#" className="joshTheEditCat">
             THE EDIT
-          <TheEdit borderColor={this.props.borderColor}></TheEdit>
-          </TheEditCat>
-          <WomensApparelCat href="#" >
+          <TheEdit></TheEdit>
+          </div>
+          <div href="#" className="joshWomensApparelCat">
             WOMEN'S APPAREL
-          <WomensApparel borderColor={this.props.borderColor}></WomensApparel>
-          </WomensApparelCat>
-          <ShoesCat href="#">
+          <WomensApparel></WomensApparel>
+          </div>
+          <div href="#" className="joshShoesCat">
             SHOES
-          <Shoes borderColor={this.props.borderColor}></Shoes>
-          </ShoesCat>
-          <HandbagsCat href="#">
+          <Shoes></Shoes>
+          </div>
+          <div className="joshHandbagsCat" href="#">
             HANDBAGS
-            <Handbags borderColor={this.props.borderColor}></Handbags>
-          </HandbagsCat>
-          <JewelryCat href="#">
+            <Handbags></Handbags>
+          </div>
+          <div className="joshJewelryCat" href="#">
               JEWELRY {'&'} ACCESSORIES
-              <Jewelry borderColor={this.props.borderColor}></Jewelry>
-          </JewelryCat>
-          <BeautyCat href="#">
+              <Jewelry></Jewelry>
+          </div>
+          <div className="joshBeautyCat" href="#">
               BEAUTY
           <Beauty></Beauty>
-          </BeautyCat>
-          <MenCat href="#">
+          </div>
+          <div className="joshMenCat" href="#">
               MEN
-            <Men borderColor={this.props.borderColor}></Men>
-          </MenCat>
-          <KidsCat href="#">
+            <Men></Men>
+          </div>
+          <div className="joshKidsCat" href="#">
               KIDS
-            <Kids borderColor={this.props.borderColor}></Kids>
-          </KidsCat>
-          <HomeCat href="#">
+            <Kids></Kids>
+          </div>
+          <div className="joshHomeCat" href="#">
               HOME
-            <Home borderColor={this.props.borderColor}></Home>
-          </HomeCat>
-          <GiftsCat href="#">
-              <GiftIcon imageUrl={giftIcon}>
-              </GiftIcon>
+            <Home></Home>
+          </div>
+          <div className="joshGiftsCat" href="#">
+              <span className="joshGiftIcon">
+              </span>
               <span style={{color: 'red'}}>
                 GIFTS
               </span>
-          <Gifts borderColor={this.props.borderColor}></Gifts>
-          </GiftsCat>
-          <SaleCat href="#">
+          <Gifts></Gifts>
+          </div>
+          <div className="joshSaleCat" href="#">
               SALE
-            <Sale borderColor={this.props.borderColor}></Sale>
-          </SaleCat>
+            <Sale></Sale>
+          </div>
         </div>
       </div>
         </div>

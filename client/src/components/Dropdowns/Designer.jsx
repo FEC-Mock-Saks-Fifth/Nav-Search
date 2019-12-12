@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const Designer = ({font, borderColor}) => {
+const Designer = () => {
   const designers = {
     col1: ["DESIGNERS BY CATEGORY", "Women's Apparel", "Beauty", "Shoes", "Handbags", "Jewelry & Accessories", "Men", "Kids", "Home"],
     col2: ["MOST WANTED", "Alice + Olivia", "Balenciaga", "Bottega Veneta", "Brunello Cucinelli", "Christian Louboutin", "Canada Goose", "Fendi", "Gucci", "La Mer", "Moncler", "Prada", "Saint Laurent", "Theory"],
     col3: ["NEW TO SAKS", "Amina Muaddi", "Baum Und Pferdgarten", "Ksubi", "Little Liffner", "Nita Suri", "Paris Texas", "Retrofête", "Rhude", "Rosantica", "Rotate Birger Christensen", "Tag Heuer", "The North Face", "Tory Burch"]
   }
     return (
-      <div font={font} borderColor={borderColor} className="SDESIGNER">
+      <div className="SDESIGNER">
         <div className="joshDSC">
         <div className="joshDCol">
         {designers.col1.map((elem, index) => {

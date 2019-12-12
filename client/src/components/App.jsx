@@ -10,14 +10,12 @@ class App extends React.Component {
   }
 
   render () {
-    let borderColor = `#B8B8B8`
-    let font = 'Source Sans Pro, sans-serif'
     return (
       <nav>
         <PromoBar/>
         <div className="joshSearchCatContainer">
           <LogoSearchBar/>
-          <CategoryBar borderColor={borderColor} font={font}/>
+          <CategoryBar/>
         </div>
       </nav>
     )
