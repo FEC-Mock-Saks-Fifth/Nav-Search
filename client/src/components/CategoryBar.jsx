@@ -18,13 +18,41 @@ class CategoryBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      position: 0,
+      scrollDirection: ''
     }
+  }
+
+
+  handleScroll(event) {
+    var positionDifference = event.path[1].pageYOffset - this.state.position;
+    this.setState({
+      position: event.path[1].pageYOffset
+    })
+
+      if (positionDifference > 0) {
+        this.setState({
+          scrollDirection: 'down'
+        })
+      } else {
+        this.setState({
+          scrollDirection: 'up'
+        })
+      }
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', (event) => this.handleScroll(event))
   }
 
   render() {
     return(
       <div>
-      <div className="joshBorderContainerCats">
+      <div className="joshBorderContainerCats" style={
+        (this.state.position <= 153 ? ({position: 'absolute'}) : (this.state.scrollDirection === 'up' ? {position: 'fixed', top: 0, transform: 'translateY(0%)', transition: 'ease 0.2s'}
+        :
+        {position: 'fixed', transform: 'translateY(-4000%)'}))
+        }>
         <div className="joshCatContainer">
           <div href="#" className="joshDesignCat">
             DESIGNERS

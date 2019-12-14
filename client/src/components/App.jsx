@@ -7,6 +7,8 @@ import CategoryBar from './CategoryBar.jsx';
 class App extends React.Component {
   constructor (props) {
     super(props)
+    this.state = {
+    }
   }
 
   render () {
